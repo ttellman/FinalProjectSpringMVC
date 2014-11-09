@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Hibernate session factory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+
+			</props>
+		</property>
+
+
+		<property name="mappingResources">
+			<list>
+				<value>com/cooksys/training/model/Actor.hbm.xml</value>
+				<value>com/cooksys/training/model/ActorInfo.hbm.xml</value>
+				<value>com/cooksys/training/model/Address.hbm.xml</value>
+				<value>com/cooksys/training/model/Category.hbm.xml</value>
+				<value>com/cooksys/training/model/City.hbm.xml</value>
+				<value>com/cooksys/training/model/Country.hbm.xml</value>
+				<value>com/cooksys/training/model/Customer.hbm.xml</value>
+				<value>com/cooksys/training/model/Customerbackup.hbm.xml
+				</value>
+				<value>com/cooksys/training/model/CustomerList.hbm.xml</value>
+				<value>com/cooksys/training/model/Film.hbm.xml</value>
+				<value>com/cooksys/training/model/FilmActor.hbm.xml</value>
+				<value>com/cooksys/training/model/FilmCategory.hbm.xml</value>
+				<value>com/cooksys/training/model/FilmList.hbm.xml</value>
+				<value>com/cooksys/training/model/FilmText.hbm.xml</value>
+				<value>com/cooksys/training/model/Inventory.hbm.xml</value>
+				<value>com/cooksys/training/model/Language.hbm.xml</value>
+				<value>com/cooksys/training/model/NicerButSlowerFilmList.hbm.xml
+				</value>
+				<value>com/cooksys/training/model/Payment.hbm.xml</value>
+				<value>com/cooksys/training/model/Rental.hbm.xml</value>
+				<value>com/cooksys/training/model/SalesByFilmCategory.hbm.xml
+				</value>
+				<value>com/cooksys/training/model/SalesByStore.hbm.xml</value>
+				<value>com/cooksys/training/model/Staff.hbm.xml</value>
+				<value>com/cooksys/training/model/StaffList.hbm.xml</value>
+				<value>com/cooksys/training/model/Store.hbm.xml</value>
+				<value>com/cooksys/training/model/UserRoles.hbm.xml</value>
+				<value>com/cooksys/training/model/Users.hbm.xml</value>
+			</list>
+		</property>
+
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+</beans>

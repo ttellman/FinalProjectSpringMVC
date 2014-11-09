@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 6, 2014 2:21:08 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.cooksys.training.model.SalesByFilmCategory" table="sales_by_film_category" catalog="sakila">
+        <composite-id name="id" class="com.cooksys.training.model.SalesByFilmCategoryId">
+            <key-property name="category" type="string">
+                <column name="category" length="25" />
+            </key-property>
+            <key-property name="totalSales" type="big_decimal">
+                <column name="total_sales" precision="27" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
